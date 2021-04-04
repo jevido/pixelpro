@@ -21,6 +21,7 @@
     "autoprefixer": "^9.8.6",
     "concurrently": "^6.0.0",
     "core-js": "^3.6.5",
+    "electron-store": "^7.0.2",
     "vue": "^3.0.0",
     "vue-router": "^4.0.4"
   },

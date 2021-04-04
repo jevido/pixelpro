@@ -1,8 +1,6 @@
 <template>
-  <div class="flex w-screen overflow-hidden bg-white rounded-lg shadow-lg">
-    <div class="bg-cover lg:block lg:w-1/2" style="background-image:url('https://pixeldrain.com/api/file/KSrfMtmA')"></div>
-  
-    <div class="w-full px-6 py-8 md:px-8 lg:w-1/2">
+  <div class="overflow-hidden rounded-lg shadow-lg justify-items-center">
+    <div class="px-6 py-8 md:px-8 w-3/4 m-auto">
       <h2 class="text-2xl font-semibold text-center text-gray-700">PixelPro</h2>
       <p class="text-xl text-center text-gray-600">Welcome back!</p>
 
@@ -44,12 +42,13 @@
 </template>
 
 <script>
+  import { store } from '@/store.js';
   export default {
     data() {
       return {
         form: {
-          emailOrUsername: 'jheremenis@gmail.com',
-          password: 'efbvcvpr3'
+          emailOrUsername: '',
+          password: ''
         },
         userdata: {}
       }
@@ -69,10 +68,15 @@
           body: formData,
         });
 
-        console.debug(loginData);
-
         if (loginData.ok) {
-          this.userData = await fetch('https://pixeldrain.com/api/user')
+          
+
+          await fetch('https://pixeldrain.com/api/user')
+            .then(response => response.json())
+            .then(data => {
+              store.set('userdata', data)
+              window.location.refresh();
+            });
         }
       }
     }

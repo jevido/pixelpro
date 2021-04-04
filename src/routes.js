@@ -28,6 +28,14 @@ export let routes = [
     }
   },
   {
+    path: '/profile',
+    component: () => import('@/pages/Profile.vue'),
+    meta: {
+      title: 'My Profile',
+      hidden: true
+    }
+  },
+  {
     path: '/file/:id',
     component: () => import('@/pages/FileViewer.vue'),
     meta: {

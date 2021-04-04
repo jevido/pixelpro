@@ -2,7 +2,6 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import { routes } from './routes.js'
 import { createRouter, createWebHistory } from 'vue-router'
-
 import './tailwind.css'
 
 let app = createApp(App)
@@ -11,7 +10,6 @@ let router = createRouter({
   history: createWebHistory(), 
   routes: routes,
 })
-
 
 // This callback runs before every route change, including on page load.
 router.beforeEach((to, from, next) => {
