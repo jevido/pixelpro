@@ -75,7 +75,7 @@
             .then(response => response.json())
             .then(data => {
               store.set('userdata', data)
-              window.location.refresh();
+              window.location.reload();
             });
         }
       }
