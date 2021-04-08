@@ -91,6 +91,7 @@
 </template>
 
 <script>
+	const { ipcRenderer } = require('electron');
   import { routes } from '@/routes.js'
   import { store } from '@/store.js'
   
@@ -103,8 +104,8 @@
 
   let loginRoute = '/login';
 
-  if (userData.username)  {
-    loginRoute = '/me'
+  if (userData.username) {
+    loginRoute = '/profile'
   }
 
   export default {
@@ -117,13 +118,15 @@
     },
     methods: {
       logOut: async () => {
+
         if (confirm('Are you sure you want to logout?')) {
           await fetch('https://pixeldrain.com/api/user/session', {
             method: 'DELETE',
           });
-          window.location = '/login'
+					
           store.set('userdata', {});
-
+					ipcRenderer.send('logout');
+          window.location = '/login'
         }
       }
     }
