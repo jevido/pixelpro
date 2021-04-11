@@ -13,7 +13,9 @@
       </div>
       <div class="h-auto w-auto px-2 py-2 bg-white rounded transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-100 hover:shadow-lg shadow border-b-8 border-green-500 text-center">
           <button class="rounded-full bg-green-200 p-2 focus:outline-none items-center justify-center">
-              <svg viewBox="0 0 20 20" class="users fill-current text-green-600 w-8 h-8"><path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"></path></svg>
+              <svg viewBox="0 0 18 18" class="users fill-current text-green-600 w-8 h-8">
+                <path d="M13 0H6a2 2 0 0 0-2 2 2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2 2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm0 13V4a2 2 0 0 0-2-2H5a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1zM3 4a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4z"/>
+              </svg>
           </button>
           <p class="text-3xl font-bold text-gray-600">{{ uploads }}</p>
           <p class="text-lg font-medium text-gray-600">File Uploads</p>
