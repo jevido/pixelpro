@@ -24,7 +24,6 @@ export let routes = [
     component: () => import('@/pages/Login.vue'),
     meta: {
       title: 'Login',
-      hidden: true
     }
   },
   {
@@ -32,7 +31,6 @@ export let routes = [
     component: () => import('@/pages/Profile.vue'),
     meta: {
       title: 'My Profile',
-      hidden: true
     }
   },
   {
@@ -40,14 +38,12 @@ export let routes = [
     component: () => import('@/pages/FileViewer.vue'),
     meta: {
       title: 'File viewer',
-      hidden: true
     }
   },
 
   {
 		path: '/:path(.*)', 
-    meta: { hidden: true },
-		component: NotFound 
+  	component: NotFound 
 	},
 ]
 

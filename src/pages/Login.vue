@@ -6,7 +6,7 @@
 
       <div class="flex items-center justify-between mt-4">
         <span class="w-1/5 border-b lg:w-1/4"></span>
-        <span href="#" class="text-xs text-center text-gray-500 uppercase">Login with email or username</span>
+        <span href="#" class="text-xs text-center text-gray-500">Login with email or username</span>
         <span class="w-1/5 border-b lg:w-1/4"></span>
       </div>
 
@@ -69,8 +69,6 @@
         });
 
         if (loginData.ok) {
-          
-
           await fetch('https://pixeldrain.com/api/user')
             .then(response => response.json())
             .then(data => {
