@@ -21,7 +21,7 @@ export default {
 			this.hover = false;
 			let availableColors = ['red','pink','blue', 'green', 'yellow', 'indigo', 'purple'];
 			let color = availableColors[Math.floor(Math.random() * availableColors.length)]
-			this.colorClass = 'border-'+color+'-300'
+			this.colorClass = 'border-'+color+'-600'
 		}
 	}
 }
