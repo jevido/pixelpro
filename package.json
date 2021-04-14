@@ -11,6 +11,7 @@
     "postuninstall": "electron-builder install-app-deps"
   },
   "main": "background.js",
+	"npm.exclude": "dist*",
   "dependencies": {
     "@tailwindcss/aspect-ratio": "^0.2.0",
     "@tailwindcss/forms": "^0.2.1",

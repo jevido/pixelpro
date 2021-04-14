@@ -103,11 +103,42 @@
       }
     },
     mounted: async function() {
-      this.downloads  = await load('downloads');
-      this.bandwidth  = await load('bandwidth');
-      this.views      = await load('views');
-      let uploads     = await fetch('https://pixeldrain.com/api/user/files').then(response => response.json())
-      this.uploads    = uploads.files.length;
+			let _this = this;
+      let downloads  = await load('downloads');
+      let bandwidth  = await load('bandwidth');
+      let views      = await load('views');
+      let uploads    = await fetch('https://pixeldrain.com/api/user/files').then(response => response.json())
+
+			let animationDuration = 1500; // in milliseconds
+			let startValue = 0;
+			let endValue = 100;
+			let startTime;
+			
+			function animateNextFrame(currentTime) {
+				if (!startTime) startTime = currentTime;
+				let elapsedTime = currentTime - startTime;
+
+				if (elapsedTime < animationDuration) {
+					let currentValue = Math.floor((elapsedTime / animationDuration) * (endValue - startValue));
+
+					// Settings the current value
+					_this.downloads	= currentValue;
+					_this.bandwidth	= currentValue;
+					_this.views			= currentValue;
+		      _this.uploads   = currentValue;
+
+					//call the next animation frame
+					window.requestAnimationFrame(animateNextFrame);
+				} else {
+					// Settings the definitive value
+					_this.downloads	= downloads;
+					_this.bandwidth	= bandwidth;
+					_this.views			= views;
+					_this.uploads 	= uploads.files.length
+				}
+			}
+
+			window.requestAnimationFrame(animateNextFrame);
     },
   }
 </script>
