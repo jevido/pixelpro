@@ -11,16 +11,19 @@
     "postuninstall": "electron-builder install-app-deps"
   },
   "main": "background.js",
-	"npm.exclude": "dist*",
+  "npm.exclude": "dist*",
   "dependencies": {
     "@tailwindcss/aspect-ratio": "^0.2.0",
     "@tailwindcss/forms": "^0.2.1",
     "@tailwindcss/line-clamp": "^0.2.0",
     "@tailwindcss/typography": "^0.4.0",
     "autoprefixer": "^9.8.6",
+    "axios": "^0.21.1",
     "concurrently": "^6.0.0",
     "core-js": "^3.6.5",
     "electron-store": "^7.0.2",
+    "form-data": "^4.0.0",
+    "path": "^0.12.7",
     "vue": "^3.0.0",
     "vue-router": "^4.0.4"
   },
