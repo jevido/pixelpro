@@ -1,5 +1,5 @@
 const { ipcMain, session } = require('electron');
-const axios = require('axios');
+const got = require('got');
 const FormData = require('form-data');
 const fs = require('fs');
 const path = require('path');
@@ -46,26 +46,18 @@ async function upload(file) {
     })
   }
 
-  
-
   // Send request
-  axios.post('https://pixeldrain.com/api/file', form, {
-    withCredentials: true,
-    onUploadProgress: (ev) => {
-      // Do something with the progress like a loading bar or something
-      // For now i'm not sure if this works for my environment
-      let percentCompleted = Math.round((ev.loaded * 100) / ev.total);
-      console.debug('Percent Completed:' + percentCompleted);
-    },
-    headers: formHeaders,
-    // Get rid of weak upload limits in formdata
-    maxContentLength: Infinity,
-    maxBodyLength: Infinity
-  })
-  .then(res => {
-    console.debug(res.data)
-    // Do something like
-    // win.webContents.send('file-uploaded', res.data);
-  })
-  .catch(err => console.log(err))
+	const res = await got.post('https://pixeldrain.com/api/file', {
+		body: form,
+		responseType: 'json',
+		headers: { 
+			...formHeaders 
+		}
+	}).on('uploadProgress', progress => {
+	// Do something like updating the not-yet-made upload tracker
+		console.log(Math.round(progress.percent * 100))
+	});
+	
+	// Do something like updating the not-yet-made upload tracker
+	console.debug('finito', res.body);
 }
