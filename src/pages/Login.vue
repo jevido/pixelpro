@@ -12,16 +12,16 @@
 
       <div class="mt-4">
         <label class="block mb-2 text-sm font-medium text-gray-600" for="loginEmailAddress">Email Address / Username</label>
-        <input v-model="form.emailOrUsername" id="loginEmailAddress" class="block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none focus:ring" type="email">
+        <input v-model="form.emailOrUsername" @keyup.enter="login(form)" id="loginEmailAddress" class="block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none focus:ring" type="email">
       </div>
 
       <div class="mt-4">
         <div class="flex justify-between">
           <label class="block mb-2 text-sm font-medium text-gray-600" for="loginPassword">Password</label>
-          <a href="#" class="text-xs text-gray-500 hover:underline" tabindex="-1">Forgot Password?</a>
+          <a href="#" @click="openUrl('https://pixeldrain.com/password_reset')" class="text-xs text-gray-500 hover:underline" tabindex="-1">Forgot Password?</a>
         </div>
 
-        <input v-model="form.password" id="loginPassword" class="block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none focus:ring" type="password">
+        <input v-model="form.password" @keyup.enter="login(form)" id="loginPassword" class="block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none focus:ring" type="password">
       </div>
 
       <div class="mt-8">
@@ -34,7 +34,7 @@
         
       <div class="flex items-center justify-between mt-4">
         <span class="w-1/5 border-b md:w-1/4"></span>
-        <a href="#" class="text-xs text-gray-500 uppercase hover:underline">or sign up</a>
+        <a href="#" @click="openUrl('https://pixeldrain.com/register')" class="text-xs text-gray-500 uppercase hover:underline">or sign up</a>
         <span class="w-1/5 border-b md:w-1/4"></span>
       </div>
     </div>
@@ -42,6 +42,7 @@
 </template>
 
 <script>
+	const { shell } = require('electron')
   import { store } from '@/store.js';
   export default {
     data() {
@@ -54,6 +55,9 @@
       }
     },
     methods: {
+			openUrl: (url) => {
+				shell.openExternal(url);
+			},
       async login(formdata) {
         if (formdata.emailOrUsername == '' || formdata.password == '') {
          return;
