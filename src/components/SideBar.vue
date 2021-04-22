@@ -1,6 +1,6 @@
 <template>
   <!-- <div class="min-h-screen flex flex-col flex-shrink-0 antialiased bg-gray-50 text-gray-800"> -->
-    <div class="top-0 left-0 w-64 bg-gray-900 h-full shadow-lg">
+    <div class="top-0 left-0 w-64 bg-gray-900 h-auto shadow-lg">
       <div class="flex items-center pl-6 h-20 border-b border-gray-800" v-if="Object.keys(userData).length !== 0">
         <img src="@/assets/logo.png" class="rounded-full h-10 w-10 flex items-center justify-center mr-3">
         <div class="ml-1">

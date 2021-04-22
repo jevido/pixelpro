@@ -1,5 +1,5 @@
 <template>
-  <main class="w-screen h-screen flex justify-center items-center">
+  <main class="justify-center items-center">
     <pre>{{userData}}</pre>
   </main>
 </template>

@@ -33,9 +33,18 @@ export let routes = [
       title: 'My Profile',
     }
   },
+
+	// Hidden routes, only accessible by clicking the router-link
   {
     path: '/file/:id',
     component: () => import('@/pages/FileViewer.vue'),
+    meta: {
+      title: 'File viewer',
+    }
+  },
+	{
+    path: '/list/:id',
+    component: () => import('@/pages/ListViewer.vue'),
     meta: {
       title: 'File viewer',
     }
